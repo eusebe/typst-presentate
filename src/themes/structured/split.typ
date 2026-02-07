@@ -157,7 +157,7 @@
       (
         spacing: (v-between-1-1: 0.4em, v-between-2-2: 0.4em, v-between-3-3: 0.4em)
       ),
-      base: c.progressive-outline
+      base: c.at("progressive-outline", default: (:))
     )
     c
   })

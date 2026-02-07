@@ -87,7 +87,7 @@
           level-3: (active: (fill: gray.lighten(40%), weight: "regular"), completed: (weight: "regular"), inactive: (weight: "regular")),
         ),
       ),
-      base: c.progressive-outline
+      base: c.at("progressive-outline", default: (:))
     )
     c
   })

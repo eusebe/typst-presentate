@@ -105,7 +105,7 @@
           indent-3: 2.4em,
         )
       ),
-      base: c.progressive-outline
+      base: c.at("progressive-outline", default: (:))
     )
     c
   })
