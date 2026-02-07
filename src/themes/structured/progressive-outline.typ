@@ -81,9 +81,9 @@
       level-2-mode: "none",
       level-3-mode: "none",
       text-styles: (
-        level-1: (active: (fill: gray.darken(20%), weight: "bold")),
-        level-2: (active: (fill: gray, weight: "bold")),
-        level-3: (active: (fill: gray.lighten(40%), weight: "regular")),
+        level-1: (active: (fill: gray.darken(20%), weight: "bold"), completed: (weight: "bold"), inactive: (weight: "bold")),
+        level-2: (active: (fill: gray, weight: "bold"), completed: (weight: "bold"), inactive: (weight: "bold")),
+        level-3: (active: (fill: gray.lighten(40%), weight: "regular"), completed: (weight: "regular"), inactive: (weight: "regular")),
       ),
     )
     c
