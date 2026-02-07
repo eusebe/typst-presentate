@@ -78,37 +78,34 @@
     c.slide-func = empty-slide.with(text-size: text-size, text-font: text-font)
     c.theme-colors = (primary: sidebar-color, accent: active-color)
     c.transitions = transitions
-    c.progressive-outline = (
-      level-1-mode: if 1 in mapping.values() { "all" } else { "none" },
-      level-2-mode: if 2 in mapping.values() { "all" } else { "none" },
-      level-3-mode: if 3 in mapping.values() { "all" } else { "none" },
-      text-styles: (
-        level-1: (
-          active: (weight: "bold", fill: active-color),
-          completed: (weight: "bold", opacity: 0.7),
-          inactive: (weight: "bold", opacity: 0.4)
+    c.progressive-outline = p.utils.merge-dicts(
+      (
+        level-1-mode: if 1 in mapping.values() { "all" } else { "none" },
+        level-2-mode: if 2 in mapping.values() { "all" } else { "none" },
+        level-3-mode: if 3 in mapping.values() { "all" } else { "none" },
+        text-styles: (
+          level-1: (
+            active: (weight: "bold", fill: active-color),
+            completed: (weight: "bold", opacity: 0.7),
+            inactive: (weight: "bold", opacity: 0.4)
+          ),
+          level-2: (
+            active: (weight: "bold", fill: active-color, size: 0.9em),
+            completed: (weight: "bold", opacity: 0.7),
+            inactive: (weight: "bold", opacity: 0.4)
+          ),
+          level-3: (
+            active: (weight: "bold", fill: active-color, size: 0.8em),
+            completed: (weight: "bold", opacity: 0.7),
+            inactive: (weight: "bold", opacity: 0.4)
+          )
         ),
-        level-2: (
-          active: (weight: "bold", fill: active-color, size: 0.9em),
-          completed: (weight: "bold", opacity: 0.7),
-          inactive: (weight: "bold", opacity: 0.4)
-        ),
-        level-3: (
-          active: (weight: "bold", fill: active-color, size: 0.8em),
-          completed: (weight: "bold", opacity: 0.7),
-          inactive: (weight: "bold", opacity: 0.4)
+        spacing: (
+          indent-2: 1.2em,
+          indent-3: 2.4em,
         )
       ),
-      spacing: (
-        indent-2: 1.2em,
-        indent-3: 2.4em,
-        v-between-1-1: 1.2em, 
-        v-between-1-2: 0.8em,
-        v-between-2-1: 1.2em, 
-        v-between-2-2: 0.6em,
-        v-between-2-3: 0.4em,
-        v-between-3-3: 0.3em,
-      )
+      base: c.progressive-outline
     )
     c
   })

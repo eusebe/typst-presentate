@@ -153,8 +153,11 @@
     c.slide-func = empty-slide.with(text-size: text-size, text-font: text-font)
     c.theme-colors = (primary: primary, accent: white)
     c.transitions = transitions
-    c.progressive-outline = (
-      spacing: (v-between-1-1: 0.4em, v-between-2-2: 0.4em, v-between-3-3: 0.4em)
+    c.progressive-outline = p.utils.merge-dicts(
+      (
+        spacing: (v-between-1-1: 0.4em, v-between-2-2: 0.4em, v-between-3-3: 0.4em)
+      ),
+      base: c.progressive-outline
     )
     c
   })
