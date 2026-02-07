@@ -220,9 +220,7 @@
       render-transition(
         h,
         transitions: final-trans,
-        mapping: mapping,
-        show-heading-numbering: show-heading-numbering,
-        numbering-format: numbering-format,
+        use-short-title: false,
         theme-colors: (primary: sidebar-color, accent: active-color),
         slide-func: empty-slide.with(text-size: text-size, text-font: text-font)
       )

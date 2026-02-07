@@ -164,7 +164,7 @@
         }
       }
 
-      render-transition(h, transitions: final-trans)
+      render-transition(h, transitions: final-trans, use-short-title: false)
     }
   }
   
