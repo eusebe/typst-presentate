@@ -1,6 +1,6 @@
 #import "../../presentate.typ" as p
 #import "../../store.typ": *
-#import "../../components/components.typ": progressive-outline, get-active-headings, structure-config, resolve-slide-title, is-role, render-transition
+#import "../../components/components.typ": progressive-outline, get-active-headings, structure-config, resolve-slide-title, is-role, render-transition, navigator-config
 #import "../../components/structure.typ": empty-slide
 #import "../../components/title.typ": slide-title
 
@@ -67,10 +67,17 @@
     numbering-format: numbering-format,
   ))
 
-  config-state.update((
-    text-size: text-size,
-    text-font: text-font,
-  ))
+  // Synchronisation avec navigator-config
+  navigator-config.update(c => {
+    c.mapping = mapping
+    c.auto-title = auto-title
+    c.show-heading-numbering = show-heading-numbering
+    c.numbering-format = numbering-format
+    c.slide-func = empty-slide.with(text-size: text-size, text-font: text-font)
+    c.theme-colors = (primary: eastern, accent: eastern)
+    c.transitions = transitions
+    c
+  })
 
   if header == auto {
     header = context {
@@ -156,15 +163,7 @@
         }
       }
 
-      render-transition(
-        h,
-        transitions: final-trans,
-        mapping: mapping,
-        show-heading-numbering: show-heading-numbering,
-        numbering-format: numbering-format,
-        theme-colors: (primary: eastern, accent: eastern),
-        slide-func: empty-slide.with(text-size: text-size, text-font: text-font)
-      )
+      render-transition(h, transitions: final-trans)
     }
   }
 
