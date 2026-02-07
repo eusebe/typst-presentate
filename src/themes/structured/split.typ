@@ -60,8 +60,6 @@
           level-1-mode: if lvl == 1 { mode } else { "none" },
           level-2-mode: if lvl == 2 { mode } else { "none" },
           level-3-mode: if lvl == 3 { mode } else { "none" },
-          show-numbering: show-num,
-          numbering-format: num-fmt,
           text-styles: (
             ("level-" + str(lvl)): (
               active: (weight: "bold", fill: white),
@@ -69,7 +67,6 @@
               completed: (weight: "regular", fill: white.transparentize(40%))
             )
           ),
-          spacing: (v-between-1-1: 0.4em, v-between-2-2: 0.4em, v-between-3-3: 0.4em)
         )
       }
     })
@@ -147,14 +144,20 @@
   let trans-opts = (enabled: true, level: 2)
   if type(transitions) == dictionary { trans-opts = p.utils.merge-dicts(base: trans-opts, transitions) }
 
-  structure-config.update(conf => (
-    mapping: mapping,
-    auto-title: auto-title,
-    text-size: text-size,
-    text-font: text-font,
-    show-heading-numbering: show-heading-numbering,
-    numbering-format: numbering-format,
-  ))
+  // Synchronisation avec navigator-config
+  navigator-config.update(c => {
+    c.mapping = mapping
+    c.auto-title = auto-title
+    c.show-heading-numbering = show-heading-numbering
+    c.numbering-format = numbering-format
+    c.slide-func = empty-slide.with(text-size: text-size, text-font: text-font)
+    c.theme-colors = (primary: primary, accent: white)
+    c.transitions = transitions
+    c.progressive-outline = (
+      spacing: (v-between-1-1: 0.4em, v-between-2-2: 0.4em, v-between-3-3: 0.4em)
+    )
+    c
+  })
 
   config-state.update((
     primary: primary,
@@ -219,15 +222,7 @@
           }
         }
 
-        render-transition(
-          h,
-          transitions: final-trans,
-          mapping: mapping,
-          show-heading-numbering: show-heading-numbering,
-          numbering-format: numbering-format,
-          theme-colors: (primary: primary, secondary: secondary, accent: white),
-          slide-func: empty-slide.with(text-size: text-size, text-font: text-font)
-        )
+        render-transition(h, transitions: final-trans)
       }
     }
 

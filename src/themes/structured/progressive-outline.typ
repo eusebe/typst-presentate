@@ -76,22 +76,28 @@
     c.slide-func = empty-slide.with(text-size: text-size, text-font: text-font)
     c.theme-colors = (primary: eastern, accent: eastern)
     c.transitions = transitions
+    c.progressive-outline = (
+      level-1-mode: "none",
+      level-2-mode: "none",
+      level-3-mode: "none",
+      text-styles: (
+        level-1: (active: (fill: gray.darken(20%), weight: "bold")),
+        level-2: (active: (fill: gray, weight: "bold")),
+        level-3: (active: (fill: luma(150), weight: "regular")),
+      ),
+    )
     c
   })
 
   if header == auto {
     header = context {
-      let mapping = structure-config.get().mapping
-      let level-modes = (level-1-mode: "none", level-2-mode: "none", level-3-mode: "none")
-      let styles = (:)
+      let mapping = navigator-config.get().mapping
+      let level-modes = (:)
       
       for role in ("part", "section", "subsection") {
         let lvl = mapping.at(role, default: none)
         if lvl != none {
           level-modes.insert("level-" + str(lvl) + "-mode", "current")
-          let col = if role == "part" { gray.darken(20%) } else if role == "section" { gray } else { luma(150) }
-          let weight = if role == "part" or role == "section" { "bold" } else { "regular" }
-          styles.insert("level-" + str(lvl), (active: (fill: col, weight: weight)))
         }
       }
 
@@ -100,9 +106,6 @@
         ..level-modes,
         layout: "horizontal",
         separator: text(fill: gray, " / "),
-        text-styles: styles,
-        show-numbering: show-heading-numbering,
-        numbering-format: numbering-format,
       )
     }
   }
