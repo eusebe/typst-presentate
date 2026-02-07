@@ -89,17 +89,16 @@
             completed: (weight: "bold", opacity: 0.7),
             inactive: (weight: "bold", opacity: 0.4)
           ),
-          level-2: (
-            active: (weight: "bold", fill: active-color, size: 0.9em),
-            completed: (weight: "bold", opacity: 0.7),
-            inactive: (weight: "bold", opacity: 0.4)
-          ),
-          level-3: (
-            active: (weight: "bold", fill: active-color, size: 0.8em),
-            completed: (weight: "bold", opacity: 0.7),
-            inactive: (weight: "bold", opacity: 0.4)
-          )
-        ),
+                  level-2: (
+                    active: (weight: "bold", fill: active-color, size: 0.9em),
+                    completed: (weight: "bold", opacity: 0.7, size: 0.9em),
+                    inactive: (weight: "bold", opacity: 0.4, size: 0.9em)
+                  ),
+                  level-3: (
+                    active: (weight: "bold", fill: active-color, size: 0.8em),
+                    completed: (weight: "bold", opacity: 0.7, size: 0.8em),
+                    inactive: (weight: "bold", opacity: 0.4, size: 0.8em)
+                  )        ),
         spacing: (
           indent-2: 1.2em,
           indent-3: 2.4em,
