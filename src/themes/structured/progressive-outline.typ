@@ -83,7 +83,7 @@
       text-styles: (
         level-1: (active: (fill: gray.darken(20%), weight: "bold")),
         level-2: (active: (fill: gray, weight: "bold")),
-        level-3: (active: (fill: luma(150), weight: "regular")),
+        level-3: (active: (fill: gray.lighten(40%), weight: "regular")),
       ),
     )
     c

@@ -63,8 +63,8 @@
           text-styles: (
             ("level-" + str(lvl)): (
               active: (weight: "bold", fill: white),
-              inactive: (weight: "regular", fill: white.transparentize(40%)),
-              completed: (weight: "regular", fill: white.transparentize(40%))
+              inactive: (weight: "regular", fill: white.transparentize(20%)),
+              completed: (weight: "regular", fill: white.transparentize(20%))
             )
           ),
         )

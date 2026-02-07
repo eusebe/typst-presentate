@@ -85,18 +85,18 @@
       text-styles: (
         level-1: (
           active: (weight: "bold", fill: active-color),
-          completed: (fill: completed-color),
-          inactive: (fill: text-color)
+          completed: 0.7,
+          inactive: 0.4
         ),
         level-2: (
           active: (weight: "bold", fill: active-color, size: 0.9em),
-          completed: (fill: completed-color, size: 0.9em),
-          inactive: (fill: text-color.darken(10%), size: 0.9em)
+          completed: 0.7,
+          inactive: 0.4
         ),
         level-3: (
           active: (weight: "bold", fill: active-color, size: 0.8em),
-          completed: (fill: completed-color, size: 0.8em),
-          inactive: (fill: text-color.darken(20%), size: 0.8em)
+          completed: 0.7,
+          inactive: 0.4
         )
       ),
       spacing: (
